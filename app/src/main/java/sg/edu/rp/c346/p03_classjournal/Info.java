@@ -5,13 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.nfc.Tag;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Info extends AppCompatActivity {
 
@@ -20,7 +23,7 @@ public class Info extends AppCompatActivity {
     ListView lvGrade;
     ArrayList<Grade> alGrade;
     ArrayAdapter aaGrade;
-    String message, emailAddress;
+    String message, emailAddress, list;
     int RequestCode = 1;
 
     @Override
@@ -46,6 +49,8 @@ public class Info extends AppCompatActivity {
             alGrade.add(new Grade("A", 3));
 
         }
+            Log.d(TAG, alGrade);
+
 
         aaGrade = new GradeAdapter(this,R.layout.activity_info,alGrade);
         lvGrade.setAdapter(aaGrade);
